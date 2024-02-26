@@ -1,0 +1,129 @@
+<html>
+    <body>
+
+    <script>
+var zoomCount = 2;
+
+function ZoomIn() {
+    if (zoomCount <= 0)
+        return;
+    zoomCount = zoomCount - 1;
+    var viewerElement = document.getElementById('viewer');
+    var classElements = viewerElement.querySelectorAll('.wuInAUlB4S2B28G274MtP.tdv_hover');
+
+    // 각 classElement에 대해 반복하여 _3GLTSUMmisAV9UtE48vgAx 클래스를 가진 요소를 찾습니다.
+    classElements.forEach(function (classElement) {
+        var parentElements = classElement.querySelectorAll('._3GLTSUMmisAV9UtE48vgAx');
+        parentElements.forEach(function (parentElement) {
+            var childElements = parentElement.querySelectorAll('[id^="v"]');
+            for (var i = 0; i < childElements.length; i++) {
+                var childElement = childElements[i];
+                // 'no-video' 클래스를 포함하지 않는 경우에만 크기를 조정합니다.
+                if (!childElement.classList.contains('no-video')) {
+                    var currentWidth = childElement.offsetWidth * 1.5; // childElement의 너비를 2배로 설정
+                    var currentHeight = childElement.offsetHeight * 1.5; // childElement의 높이를 2배로 설정
+                    break;
+                }
+            }
+
+            for (var i = 0; i < childElements.length; i++) {
+                var childElement = childElements[i];
+                childElement.style.width = currentWidth + "px";
+                // 'no-video' 클래스를 포함하지 않는 경우에만 크기를 조정합니다.
+                if (!childElement.classList.contains('no-video')) {
+                    childElement.style.height = currentHeight + "px";
+
+                    // 비디오 요소 찾기
+                    var videoElement = childElement.querySelector("video");
+                    if (videoElement) {
+                        // 비디오 요소의 크기를 childElement의 크기와 동일하게 설정
+                        videoElement.style.width = currentWidth + "px";
+                        videoElement.style.height = currentHeight + "px";
+                    }
+                }
+                else {
+                    var extraheight = childElement.offsetHeight;
+                    childElement.style.height = currentHeight + "px";
+
+                    // 비디오 요소 찾기
+                    var videoElement = childElement.querySelector("video");
+                    if (videoElement) {
+                        // 비디오 요소의 크기를 childElement의 크기와 동일하게 설정
+                        videoElement.style.width = currentWidth + "px";
+                        videoElement.style.height = currentHeight + "px";
+                    }
+                }
+            }
+
+            var parentWidth = currentWidth + "px";
+            var parentHeight = currentHeight + "px";
+            parentElement.style.width = parentWidth;
+            parentElement.style.height = parentHeight + extraheight;
+        });//parentElement forEach
+    });
+
+
+}
+
+
+function ZoomOut() {
+    if (zoomCount >= 2)
+        return;
+    zoomCount = zoomCount + 1;
+    var viewerElement = document.getElementById('viewer');
+    var classElements = viewerElement.querySelectorAll('.wuInAUlB4S2B28G274MtP.tdv_hover');
+    // 각 classElement에 대해 반복하여 _3GLTSUMmisAV9UtE48vgAx 클래스를 가진 요소를 찾습니다.
+    classElements.forEach(function (classElement) {
+        var parentElements = classElement.querySelectorAll('._3GLTSUMmisAV9UtE48vgAx');
+        parentElements.forEach(function (parentElement) {
+            var childElements = parentElement.querySelectorAll('[id^="v"]');
+            for (var i = 0; i < childElements.length; i++) {
+                var childElement = childElements[i];
+                // 'no-video' 클래스를 포함하지 않는 경우에만 크기를 조정합니다.
+                if (!childElement.classList.contains('no-video')) {
+                    var currentWidth = childElement.offsetWidth / 1.5; // childElement의 너비를 2배로 설정
+                    var currentHeight = childElement.offsetHeight / 1.5; // childElement의 높이를 2배로 설정
+                    break;
+                }
+            }
+
+            for (var i = 0; i < childElements.length; i++) {
+                var childElement = childElements[i];
+                childElement.style.width = currentWidth + "px";
+                // 'no-video' 클래스를 포함하지 않는 경우에만 크기를 조정합니다.
+                if (!childElement.classList.contains('no-video')) {
+                    childElement.style.height = currentHeight + "px";
+
+                    // 비디오 요소 찾기
+                    var videoElement = childElement.querySelector("video");
+                    if (videoElement) {
+                        // 비디오 요소의 크기를 childElement의 크기와 동일하게 설정
+                        videoElement.style.width = currentWidth + "px";
+                        videoElement.style.height = currentHeight + "px";
+                    }
+                }
+                else {
+                    var extraheight = childElement.offsetHeight;
+                    childElement.style.height = currentHeight + "px";
+
+                    // 비디오 요소 찾기
+                    var videoElement = childElement.querySelector("video");
+                    if (videoElement) {
+                        // 비디오 요소의 크기를 childElement의 크기와 동일하게 설정
+                        videoElement.style.width = currentWidth + "px";
+                        videoElement.style.height = currentHeight + "px";
+                    }
+                }
+            }
+            var parentWidth = currentWidth + "px";
+            var parentHeight = currentHeight + "px";
+            parentElement.style.width = parentWidth;
+            parentElement.style.height = parentHeight + extraheight;
+        });
+    });
+
+
+}
+</script>
+    </body>
+</html>
